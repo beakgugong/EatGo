@@ -5,6 +5,7 @@ import kr.jinseok.eatgo.domain.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 @RestController
@@ -17,4 +18,5 @@ public class MenuController {
         menuService.update(restaurantId,menus);
         return "success";
     }
+
 }

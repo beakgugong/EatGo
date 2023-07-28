@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestaurantService {
@@ -46,6 +47,11 @@ public class RestaurantService {
         restaurant.setLocation(location);
 
         return restaurant;
+    }
+
+    public List<Restaurant> getRegion(String location) {
+        List<Restaurant> restaurants = restaurantRepository.findByLocation(location);
+        return restaurants;
     }
     //location null로 뜸
 }

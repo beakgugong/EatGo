@@ -28,5 +28,10 @@ public class RestaurantController {
 
         return restaurant;
     }
+    @GetMapping("/restaurants/{location}")
+    public List<Restaurant> region(@PathVariable("location") String location){
+        List<Restaurant> restaurants = restaurantService.getRegion(location);
+        return  restaurants;
+    }
 
 }
