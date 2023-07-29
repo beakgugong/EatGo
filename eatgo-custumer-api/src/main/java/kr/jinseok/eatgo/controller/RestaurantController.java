@@ -33,7 +33,7 @@ public class RestaurantController {
 
         return restaurant;
     }
-    /*@GetMapping("/restaurants/{location}")
+    /*@GetMapping("/restaurant/{location}")
     public List<Restaurant> region(@PathVariable("location") String location){
         List<Restaurant> restaurants = restaurantService.getRegion(location);
         return  restaurants;
