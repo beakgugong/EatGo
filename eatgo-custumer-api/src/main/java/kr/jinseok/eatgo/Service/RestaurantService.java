@@ -29,9 +29,13 @@ public class RestaurantService {
         restaurant.setMenus(menu);
         return restaurant ;
     }
-
-    public List<Restaurant> getRestaurants() {
+    public List<Restaurant> getRestaurants(){
         List<Restaurant> restaurants = restaurantRepository.findAll();
+        return restaurants;
+    }
+
+    public List<Restaurant> getRestaurants(String region, Long categoryId) {
+        List<Restaurant> restaurants = restaurantRepository.findAllByLocationContainingAndCategoryId(region, categoryId);
         return restaurants;
     }
 
@@ -49,9 +53,5 @@ public class RestaurantService {
         return restaurant;
     }
 
-    public List<Restaurant> getRegion(String location) {
-        List<Restaurant> restaurants = restaurantRepository.findByLocation(location);
-        return restaurants;
-    }
     //location null로 뜸
 }

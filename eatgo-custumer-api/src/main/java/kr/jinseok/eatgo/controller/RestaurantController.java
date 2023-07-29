@@ -16,10 +16,15 @@ public class RestaurantController {
     @Autowired
     private RestaurantService restaurantService;
 
-
-    @GetMapping("/restaurant")
+    @GetMapping("/restaurants")
     public List<Restaurant> list(){
         List<Restaurant> restaurants = restaurantService.getRestaurants();
+        return restaurants;
+    }
+    @GetMapping("/restaurant")
+    public List<Restaurant> list(@RequestParam("region") String region,
+                                 @RequestParam("categoryId") Long categoryId){
+        List<Restaurant> restaurants = restaurantService.getRestaurants(region,categoryId);
         return restaurants;
     }
     @GetMapping("/restaurant/{id}")
@@ -28,10 +33,10 @@ public class RestaurantController {
 
         return restaurant;
     }
-    @GetMapping("/restaurants/{location}")
+    /*@GetMapping("/restaurants/{location}")
     public List<Restaurant> region(@PathVariable("location") String location){
         List<Restaurant> restaurants = restaurantService.getRegion(location);
         return  restaurants;
-    }
+    }*/
 
 }

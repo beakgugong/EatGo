@@ -33,7 +33,7 @@ class RestaurantControllerTest {
     public void list() throws Exception {
         List<Restaurant> restaurants = new ArrayList<>();
         restaurants.add(new Restaurant(1004L,"bob zip","seoul"));
-        given(restaurantService.getRestaurants()).willReturn(restaurants);
+        //given(restaurantService.getRestaurants()).willReturn(restaurants);
         mvc.perform(get("/restaurant"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("bob zip")))

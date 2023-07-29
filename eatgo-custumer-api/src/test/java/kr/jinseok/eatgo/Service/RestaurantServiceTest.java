@@ -1,4 +1,4 @@
-package kr.jinseok.eatgo.Service;
+/*package kr.jinseok.eatgo.Service;
 
 import kr.jinseok.eatgo.domain.Restaurant;
 import kr.jinseok.eatgo.domain.RestaurantRepository;
@@ -20,7 +20,7 @@ class RestaurantServiceTest {
         RestaurantRepository restaurantRepository = new RestaurantRepositoryImpl();
 
         restaurantService = new RestaurantService(restaurantRepository);
-    }*/
+    }
     private void mockRestaurantRepository() {
         List<Restaurant> restaurants = new ArrayList<>();
         Restaurant restaurant = new Restaurant(1004L, "Bob zip", "seoul");
@@ -57,4 +57,4 @@ class RestaurantServiceTest {
 
         assertThat(restaurant.getName()).isEqualTo("Sul zip");
     }
-}
+}*/

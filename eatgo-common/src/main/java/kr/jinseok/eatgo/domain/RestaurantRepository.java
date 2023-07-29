@@ -10,4 +10,5 @@ public interface RestaurantRepository extends CrudRepository<Restaurant,Long> {
     Optional<Restaurant> findById(Long id);
     Restaurant save(Restaurant restaurant);
     List<Restaurant> findByLocation(String location);
+    List<Restaurant> findAllByLocationContainingAndCategoryId(String region, Long categoryId);
 }

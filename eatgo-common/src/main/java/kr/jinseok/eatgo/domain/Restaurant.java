@@ -19,6 +19,8 @@ public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NonNull
+    private Long categoryId;
     private String name;
     private String location;
     @Transient
