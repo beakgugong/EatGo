@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RegionService {
+public class  RegionService {
     @Autowired
     private RegionRepository regionRepository;
     public List<Region> getRegions(){
@@ -17,11 +17,5 @@ public class RegionService {
         return regions;
     }
 
-    public Region addRegion(String name) {
-        Region region = Region.builder()
-                                .name(name)
-                                .build();
-        regionRepository.save(region);
-        return region;
-    }
+
 }
