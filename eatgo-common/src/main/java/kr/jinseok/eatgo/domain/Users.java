@@ -21,4 +21,6 @@ public class Users {
     @NonNull
     private String name;
     private Long level;
+    @NonNull
+    private String password;
 }
