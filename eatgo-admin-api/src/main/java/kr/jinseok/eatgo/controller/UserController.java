@@ -4,10 +4,7 @@ import kr.jinseok.eatgo.Service.UserService;
 import kr.jinseok.eatgo.domain.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -30,4 +27,14 @@ public class UserController {
         String uri = "/users/"+user.getId();
         return ResponseEntity.created(new URI(uri)).body("{}");
     }
+    @PatchMapping("/users/{id}")
+    public String update(@PathVariable("id") Long id, @RequestBody Users resource){
+        Users user = userService.updateUser(id,resource);
+        return "";
+    }
+    /*@DeleteMapping("/users/{id}")
+    public String delete(@PathVariable("id") Long id){
+        userService.deleteId(id);
+        return null;
+    }*/
 }

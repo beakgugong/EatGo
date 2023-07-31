@@ -24,4 +24,15 @@ public class UserService {
         userRepository.save(user1);
     return user1;
     }
+
+    public Users updateUser(Long id,Users users) {
+        Users users1 = userRepository.findById(id).orElse(null);
+        users1.setName(users.getName());
+        users1.setName(users.getName());
+        users1.setEmail(users.getEmail());
+
+        return users1;
+    }
+
 }
+
