@@ -1,8 +1,6 @@
 package kr.jinseok.eatgo.Service;
 
-import kr.jinseok.eatgo.domain.EmailExistedException;
-import kr.jinseok.eatgo.domain.UserRepository;
-import kr.jinseok.eatgo.domain.Users;
+import kr.jinseok.eatgo.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -32,5 +30,16 @@ public class UserService {
                 .password(hash)
                 .build();
      return userRepository.save(resource);
+    }
+    public Users authenticate(SessionRequestDto sessionRequestDto)
+    {
+        Users exist = userRepository.findByEmail(sessionRequestDto.getEmail()).orElseThrow(()-> new EmailWrongException());
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hash = passwordEncoder.encode(sessionRequestDto.getPassword());
+
+        if(exist.getPassword()== hash){
+            return exist;
+        }
+        else throw new PasswordWrongException();
     }
 }

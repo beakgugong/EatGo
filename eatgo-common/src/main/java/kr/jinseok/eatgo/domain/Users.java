@@ -1,5 +1,6 @@
 package kr.jinseok.eatgo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -23,4 +24,11 @@ public class Users {
     private Long level;
     @NonNull
     private String password;
+    @JsonIgnore
+    public String getAccessToken() {
+        if(password == null){
+            return "";
+        }
+        return password.substring(0,10);
+    }
 }
