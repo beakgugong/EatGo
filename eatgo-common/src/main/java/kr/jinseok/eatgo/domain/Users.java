@@ -24,11 +24,4 @@ public class Users {
     private Long level;
     @NonNull
     private String password;
-    @JsonIgnore
-    public String getAccessToken() {
-        if(password == null){
-            return "";
-        }
-        return password.substring(0,10);
-    }
 }

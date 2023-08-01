@@ -29,15 +29,14 @@ public class UserService {
                 .name(resource.getEmail())
                 .password(hash)
                 .build();
-     return userRepository.save(resource);
+     return userRepository.save(users);
     }
     public Users authenticate(SessionRequestDto sessionRequestDto)
     {
         Users exist = userRepository.findByEmail(sessionRequestDto.getEmail()).orElseThrow(()-> new EmailWrongException());
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String hash = passwordEncoder.encode(sessionRequestDto.getPassword());
 
-        if(exist.getPassword()== hash){
+        if(passwordEncoder.matches(sessionRequestDto.getPassword(), exist.getPassword())){
             return exist;
         }
         else throw new PasswordWrongException();
