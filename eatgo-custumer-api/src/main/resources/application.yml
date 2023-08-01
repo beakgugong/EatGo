@@ -6,4 +6,4 @@ spring:
       ddl-auto: update
 
 jwt:
-  secret: 12345678912345678912345678912345
+  secret: jwttokenisbiggermorethan32bytessoaddthisword
