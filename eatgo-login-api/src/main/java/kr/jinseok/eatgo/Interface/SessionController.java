@@ -1,7 +1,5 @@
-package kr.jinseok.eatgo.controller;
+package kr.jinseok.eatgo.Interface;
 
-import kr.jinseok.eatgo.Service.SessionRequestDto;
-import kr.jinseok.eatgo.Service.SessionResponseDto;
 import kr.jinseok.eatgo.Service.UserService;
 import kr.jinseok.eatgo.domain.Users;
 import kr.jinseok.eatgo.util.JwtUtil;

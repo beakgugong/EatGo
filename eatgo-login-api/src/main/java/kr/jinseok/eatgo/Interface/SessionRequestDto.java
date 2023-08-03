@@ -1,4 +1,4 @@
-package kr.jinseok.eatgo.Service;
+package kr.jinseok.eatgo.Interface;
 
 import lombok.Builder;
 import lombok.Data;

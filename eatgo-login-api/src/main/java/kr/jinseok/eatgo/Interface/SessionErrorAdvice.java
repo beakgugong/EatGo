@@ -1,6 +1,5 @@
-package kr.jinseok.eatgo.controller;
+package kr.jinseok.eatgo.Interface;
 
-import kr.jinseok.eatgo.domain.PasswordWrongException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

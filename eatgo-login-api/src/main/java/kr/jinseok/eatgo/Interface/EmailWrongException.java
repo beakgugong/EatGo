@@ -1,4 +1,4 @@
-package kr.jinseok.eatgo.domain;
+package kr.jinseok.eatgo.Interface;
 
 public class EmailWrongException extends RuntimeException{
     public EmailWrongException(){
