@@ -24,10 +24,10 @@ public class RestaurantService {
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow(()->new RestaurantNotFoundException(id));
         List<Menu> menu = menuRepository.findAllByRestaurantId(id);
 
-        List<Review> reviews = reviewRepository.findAllByRestaurantId(id);
-        restaurant.setReviews(reviews) ;
+        List<Review> review = reviewRepository.findAllByRestaurantId(id);
+        restaurant.setReviews(review);
         restaurant.setMenus(menu);
-        return restaurant ;
+        return restaurant;
     }
     public List<Restaurant> getRestaurants(){
         List<Restaurant> restaurants = restaurantRepository.findAll();

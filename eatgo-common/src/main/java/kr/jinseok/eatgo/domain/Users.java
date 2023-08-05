@@ -24,4 +24,11 @@ public class Users {
     private Long level;
     @NonNull
     private String password;
+    private Long restaurantId;
+    public boolean isRestaurantOwner(){
+        if(this.restaurantId!=null){
+            return true;
+        }
+        return false;
+    }
 }

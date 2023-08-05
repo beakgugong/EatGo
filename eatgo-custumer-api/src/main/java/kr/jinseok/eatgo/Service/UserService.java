@@ -26,7 +26,7 @@ public class UserService {
         String hash = passwordEncoder.encode(resource.getPassword());
         Users users = Users.builder()
                 .email(resource.getEmail())
-                .name(resource.getEmail())
+                .name(resource.getName())
                 .password(hash)
                 .build();
         return userRepository.save(users);

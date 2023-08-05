@@ -16,12 +16,11 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NonNull
+
     private String name;
     @NonNull
-    private Integer  score;
+    private Integer score;
     @NonNull
     private String description;
-    @NonNull
     private Long restaurantId;
 }

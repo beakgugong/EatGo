@@ -26,7 +26,8 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
-                                    FilterChain chain) throws IOException, ServletException {
+                                    FilterChain chain)
+             throws IOException, ServletException {
         Authentication authentication = authentication(request);
         if(authentication!=null){
             SecurityContext context = SecurityContextHolder.getContext();
@@ -37,7 +38,7 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
     private Authentication authentication(HttpServletRequest request){
         String token = request.getHeader("Authorization");
         if(token==null){
-
+            return null;
         }
         Claims claims = jwtUtil.getClaims(token.substring("Bearer ".length()));
         Authentication authentication =new UsernamePasswordAuthenticationToken(claims,null);

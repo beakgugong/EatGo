@@ -21,10 +21,11 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
     @PostMapping("/restaurant/{restaurantId}/review")
-    public ResponseEntity<?> create(@PathVariable("restaurantId")Long restaurantId, @Validated @RequestBody Review resource) throws URISyntaxException {
+    public ResponseEntity<?> create(Authentication authentication,
+            @PathVariable("restaurantId")Long restaurantId, @Validated @RequestBody Review resource) throws URISyntaxException {
         Claims claims= (Claims) authentication.getPrincipal();
-
-        Review review = reviewService.addReview(restaurantId,resource);
+        String name = claims.get("name",String.class);
+        Review review = reviewService.addReview(restaurantId,name,resource.getScore(),resource.getDescription());
         String uri = "/restaurant/"+restaurantId+"/review/"+review.getId();
         return ResponseEntity.created(new URI (uri))
                 .body("{}");
