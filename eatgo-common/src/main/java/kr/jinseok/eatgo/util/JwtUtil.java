@@ -8,7 +8,6 @@ import io.jsonwebtoken.security.Keys;
 
 import java.security.Key;
 
-
 public class JwtUtil {
     private Key key;
     public JwtUtil(String secret){
@@ -35,3 +34,4 @@ public class JwtUtil {
         return claims;
     }
 }
+
